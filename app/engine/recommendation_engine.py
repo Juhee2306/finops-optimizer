@@ -22,6 +22,10 @@ class RecommendationEngine:
                 instance["instance_id"]
             )
 
+            print("=" * 50)
+            print(f"Instance ID: {instance['instance_id']}")
+            print(f"CPU: {cpu}")
+
             findings.extend(
                 self.ec2_analyzer.analyze(instance, cpu)
             )

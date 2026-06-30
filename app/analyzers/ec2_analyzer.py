@@ -1,60 +1,49 @@
+from models.finding import Finding
+
+
 class EC2Analyzer:
 
-    def analyze(self, instance, cpu_utilization):
+    def analyze(self, instance, cpu):
 
         findings = []
 
         tags = instance.get("tags", [])
 
-        environment = "Unknown"
+        environment = "unknown"
 
         for tag in tags:
             if tag["Key"] == "Environment":
-                environment = tag["Value"]
+                environment = tag["Value"].lower()
 
-        if cpu_utilization is None:
-            findings.append({
-                "severity": "low",
-                "issue": "No utilization data",
-                "recommendation": "Review instance manually"
-            })
-
+        if cpu is None:
             return findings
 
-        if cpu_utilization < 5:
+        if cpu < 5:
 
-            recommendation = (
-                "Review for rightsizing"
-                if environment.lower() == "production"
-                else "Consider stopping or rightsizing"
-            )
+            if environment == "production":
 
-            findings.append({
-                "severity": "medium",
-                "issue": "Low CPU utilization",
-                "recommendation": recommendation
-            })
+                findings.append(
+                    Finding(
+                        resource_id=instance["instance_id"],
+                        resource_type="EC2",
+                        severity="Medium",
+                        issue="Low CPU utilization",
+                        recommendation="Review instance for rightsizing",
+                        estimated_monthly_savings=0
+                    )
+                )
+
+            else:
+
+                findings.append(
+                    Finding(
+                        resource_id=instance["instance_id"],
+                        resource_type="EC2",
+                        severity="High",
+                        issue="Low CPU utilization",
+                        recommendation="Consider stopping this instance",
+                        estimated_monthly_savings=0
+                    )
+                )
 
         return findings
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
