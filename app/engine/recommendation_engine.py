@@ -18,13 +18,27 @@ class RecommendationEngine:
 
         for instance in instances:
 
+            if instance["state"] == "stopped":
+                print(
+                    f"Instance: {instance['instance_id']} | "
+                    f"State: {instance['state']}"
+                )
+
+                findings.extend(
+                    self.ec2_analyzer.analyze(instance, None)
+                )
+                continue
+
             cpu = self.cloudwatch.get_average_cpu_utilization(
                 instance["instance_id"]
             )
 
-            print("=" * 50)
-            print(f"Instance ID: {instance['instance_id']}")
-            print(f"CPU: {cpu}")
+            print(
+                f"Instance: {instance['instance_id']} | "
+                f"State: {instance['state']} | "
+                f"Type: {instance['instance_type']} | "
+                f"CPU: {cpu}"
+            )
 
             findings.extend(
                 self.ec2_analyzer.analyze(instance, cpu)

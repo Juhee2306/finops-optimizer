@@ -27,6 +27,9 @@ class CloudWatchService:
             Period=3600,
             Statistics=["Average"]
         )
+        print("\n========== CloudWatch Response ==========")
+        print(response)
+        print("=========================================\n")
 
         datapoints = response["Datapoints"]
 

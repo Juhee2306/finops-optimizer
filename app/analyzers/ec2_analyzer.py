@@ -1,49 +1,40 @@
 from models.finding import Finding
 
-
 class EC2Analyzer:
 
     def analyze(self, instance, cpu):
 
         findings = []
 
-        tags = instance.get("tags", [])
+        # Rule 1: Stopped Instance
+        if instance["state"] == "stopped":
+            findings.append(
+                Finding(
+                    resource_id=instance["instance_id"],
+                    resource_type="EC2",
+                    severity="Low",
+                    issue="Stopped instance",
+                    recommendation="Review for termination if no longer needed",
+                    estimated_monthly_savings=0.0
+                )
+            )
+            return findings
 
-        environment = "unknown"
-
-        for tag in tags:
-            if tag["Key"] == "Environment":
-                environment = tag["Value"].lower()
-
+        # Rule 2: No CPU data
         if cpu is None:
             return findings
 
+        # Rule 3: Low CPU
         if cpu < 5:
-
-            if environment == "production":
-
-                findings.append(
-                    Finding(
-                        resource_id=instance["instance_id"],
-                        resource_type="EC2",
-                        severity="Medium",
-                        issue="Low CPU utilization",
-                        recommendation="Review instance for rightsizing",
-                        estimated_monthly_savings=0
-                    )
+            findings.append(
+                Finding(
+                    resource_id=instance["instance_id"],
+                    resource_type="EC2",
+                    severity="Medium",
+                    issue="Low CPU utilization",
+                    recommendation="Consider rightsizing the instance",
+                    estimated_monthly_savings=10.0
                 )
-
-            else:
-
-                findings.append(
-                    Finding(
-                        resource_id=instance["instance_id"],
-                        resource_type="EC2",
-                        severity="High",
-                        issue="Low CPU utilization",
-                        recommendation="Consider stopping this instance",
-                        estimated_monthly_savings=0
-                    )
-                )
+            )
 
         return findings
