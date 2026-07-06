@@ -1,0 +1,42 @@
+[
+    {
+        "resource_id": "i-04f280cbf095d313e",
+        "resource_type": "EC2",
+        "severity": "Low",
+        "issue": "Stopped instance",
+        "recommendation": "Review for termination if no longer needed",
+        "estimated_monthly_savings": 0.0
+    },
+    {
+        "resource_id": "i-06af8409695ac8f08",
+        "resource_type": "EC2",
+        "severity": "Low",
+        "issue": "Stopped instance",
+        "recommendation": "Review for termination if no longer needed",
+        "estimated_monthly_savings": 0.0
+    },
+    {
+        "resource_id": "i-0e43c6a354b8b182e",
+        "resource_type": "EC2",
+        "severity": "Low",
+        "issue": "Stopped instance",
+        "recommendation": "Review for termination if no longer needed",
+        "estimated_monthly_savings": 0.0
+    },
+    {
+        "resource_id": "i-02925ec06d6d0435f",
+        "resource_type": "EC2",
+        "severity": "Low",
+        "issue": "Stopped instance",
+        "recommendation": "Review for termination if no longer needed",
+        "estimated_monthly_savings": 0.0
+    },
+    {
+        "resource_id": "i-06bf529217db3e0c9",
+        "resource_type": "EC2",
+        "severity": "Low",
+        "issue": "Stopped instance",
+        "recommendation": "Review for termination if no longer needed",
+        "estimated_monthly_savings": 0.0
+    }
+]
