@@ -3,14 +3,12 @@ from dataclasses import asdict
 
 from engine.recommendation_engine import RecommendationEngine
 
+
 engine = RecommendationEngine()
 
-findings = engine.analyze_ec2_instances()
+findings = engine.analyze()
 
-report = []
-
-for finding in findings:
-    report.append(asdict(finding))
+report = [asdict(finding) for finding in findings]
 
 print(json.dumps(report, indent=4))
 
