@@ -7,7 +7,10 @@ from engine.recommendation_engine import RecommendationEngine
 engine = RecommendationEngine()
 
 findings = engine.analyze()
+print(f"\nTotal Findings: {len(findings)}")
 
+for finding in findings:
+    print(finding.resource_type, "-", finding.issue)
 report = [asdict(finding) for finding in findings]
 
 print(json.dumps(report, indent=4))

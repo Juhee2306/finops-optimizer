@@ -1,4 +1,6 @@
 from models.finding import Finding
+from utils.pricing import EC2_MONTHLY_COST
+
 
 class EC2Analyzer:
 
@@ -8,6 +10,7 @@ class EC2Analyzer:
 
         # Rule 1: Stopped Instance
         if instance["state"] == "stopped":
+
             findings.append(
                 Finding(
                     resource_id=instance["instance_id"],
@@ -15,17 +18,22 @@ class EC2Analyzer:
                     severity="Low",
                     issue="Stopped instance",
                     recommendation="Review for termination if no longer needed",
-                    estimated_monthly_savings=0.0
+                    estimated_monthly_savings=EC2_MONTHLY_COST.get(
+                        instance["instance_type"],
+                        0.0
+                    )
                 )
             )
+
             return findings
 
         # Rule 2: No CPU data
         if cpu is None:
             return findings
 
-        # Rule 3: Low CPU
+        # Rule 3: Low CPU utilization
         if cpu < 5:
+
             findings.append(
                 Finding(
                     resource_id=instance["instance_id"],
@@ -33,7 +41,10 @@ class EC2Analyzer:
                     severity="Medium",
                     issue="Low CPU utilization",
                     recommendation="Consider rightsizing the instance",
-                    estimated_monthly_savings=10.0
+                    estimated_monthly_savings=EC2_MONTHLY_COST.get(
+                        instance["instance_type"],
+                        0.0
+                    )
                 )
             )
 
