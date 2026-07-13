@@ -2,9 +2,9 @@
 
 
 ```
-**A Python-based FinOps optimization tool that analyzes AWS resources,
+A Python-based FinOps optimization tool that analyzes AWS resources,
 identifies cost-saving opportunities, and demonstrates Infrastructure as
-Code using Terraform and Docker.**
+Code using Terraform and Docker.
 
 ```
 
