@@ -38,5 +38,13 @@
         "issue": "Stopped instance",
         "recommendation": "Review for termination if no longer needed",
         "estimated_monthly_savings": 7.5
+    },
+    {
+        "resource_id": "i-0d11fe1381f89896a",
+        "resource_type": "EC2",
+        "severity": "Medium",
+        "issue": "Low CPU utilization",
+        "recommendation": "Consider rightsizing the instance",
+        "estimated_monthly_savings": 7.5
     }
 ]
