@@ -1,14 +1,11 @@
 # FinOps Optimizer
 
-```{=html}
-<p align="center">
+
 ```
 **A Python-based FinOps optimization tool that analyzes AWS resources,
 identifies cost-saving opportunities, and demonstrates Infrastructure as
 Code using Terraform and Docker.**
 
-```{=html}
-</p>
 ```
 
 ------------------------------------------------------------------------
@@ -242,12 +239,8 @@ terraform destroy
 
 Cloud Computing Undergraduate \| Aspiring Cloud & DevOps Engineer
 
-LinkedIn: *(add link)*
+LinkedIn: 
 
-GitHub: *(add repository link)*
+GitHub: 
 
-------------------------------------------------------------------------
 
-## License
-
-This project is released under the MIT License.
