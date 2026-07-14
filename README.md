@@ -1,27 +1,18 @@
 # FinOps Optimizer
 
 
-A Python-based FinOps optimization tool that analyzes AWS resources,
-identifies cost-saving opportunities, and demonstrates Infrastructure as
-Code using Terraform and Docker.
-
+A Cloud Cost Optimization platform built with Python, AWS, Docker, and Terraform that automatically analyzes AWS resources and generates actionable FinOps 
+recommendations.
 
 ------------------------------------------------------------------------
 
 ## Overview
 
-FinOps Optimizer helps identify cloud resources that may be generating
-unnecessary costs. It analyzes AWS resources using the AWS SDK
-(`boto3`), applies optimization rules, and generates actionable
-recommendations in a JSON report.
+Cloud environments often contain idle or underutilized resources that unnecessarily increase operational costs. Manually identifying these inefficiencies is time-consuming and prone to oversight.
 
-This project demonstrates practical Cloud and DevOps skills including:
+**FinOps Optimizer** automates this process by discovering AWS resources, analyzing their utilization using the AWS SDK (`boto3`), applying FinOps optimization rules, estimating potential monthly savings, and generating actionable recommendations in a structured JSON report.
 
--   AWS resource analysis
--   FinOps principles
--   Infrastructure as Code (Terraform)
--   Containerization (Docker)
--   Python automation
+This project demonstrates practical Cloud and DevOps skills through the implementation of Infrastructure as Code (Terraform), containerization (Docker), AWS automation, and Python-based cloud resource analysis.
 
 ------------------------------------------------------------------------
 
