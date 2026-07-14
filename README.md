@@ -1,7 +1,5 @@
 # FinOps Optimizer
-
-
-A Cloud Cost Optimization platform built with Python, AWS, Docker, and Terraform that automatically analyzes AWS resources and generates actionable FinOps 
+> A Cloud Cost Optimization platform built with Python, AWS, Docker, and Terraform that automatically analyzes AWS resources and generates actionable FinOps 
 recommendations.
 
 ------------------------------------------------------------------------
@@ -26,18 +24,6 @@ The objective of this project is to automate the discovery and analysis of AWS r
 
 By combining AWS APIs, Python automation, Docker, and Terraform, this project demonstrates how cloud infrastructure can be analyzed and managed efficiently while promoting Infrastructure as Code (IaC) and modern DevOps practices.
 
-------------------------------------------------------------------------
-# 🎯 Project Objectives
-
-- Automate the discovery of AWS cloud resources.
-- Analyze EC2 instances, EBS volumes, and snapshots for optimization opportunities.
-- Detect stopped and underutilized EC2 instances using CloudWatch metrics.
-- Estimate potential monthly cost savings for identified resources.
-- Generate structured JSON reports with optimization recommendations.
-- Demonstrate Infrastructure as Code (IaC) using Terraform.
-- Containerize the application using Docker for portability and reproducibility.
-- Showcase practical Cloud Computing, FinOps, and DevOps skills through an end-to-end project.
-
 ---------------------------------------------------------------------------
 
 
@@ -57,8 +43,6 @@ By combining AWS APIs, Python automation, Docker, and Terraform, this project de
 | **AWS SDK Integration** | Uses the AWS SDK (`boto3`) for secure interaction with AWS services. |
 
 ------------------------------------------------------------------------
-
----
 
 # Tech Stack
 
@@ -91,6 +75,8 @@ finops-optimizer/
 ├── terraform/
 ├── reports/
 ├── assets/
+│   ├── architecture/
+│   └── screenshots/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
@@ -98,10 +84,9 @@ finops-optimizer/
 
 ------------------------------------------------------------------------
 
-# Architecture
+# 🏗️ Architecture
 
-> Replace this section with the architecture diagram image later.
-
+The FinOps Optimizer follows a modular architecture where AWS resources are discovered using the AWS SDK (`boto3`), analyzed by dedicated optimization modules, and processed through a recommendation engine to generate structured cost optimization reports.
 ``` text
 Terraform
       │
@@ -123,73 +108,105 @@ JSON Report
 ```
 
 ------------------------------------------------------------------------
+# ⚙️ Installation
 
-# How It Works
+Clone the repository:
 
-1.  Connects to AWS using configured credentials.
-2.  Discovers supported AWS resources.
-3.  Retrieves CPU utilization using CloudWatch (where applicable).
-4.  Applies optimization rules.
-5.  Estimates potential monthly savings.
-6.  Generates a structured JSON report.
-
-------------------------------------------------------------------------
-
-# Running Locally
-
-``` bash
-git clone https://github.com/YOUR_USERNAME/finops-optimizer.git
+```bash
+git clone https://github.com/Juhee2306/finops-optimizer.git
 cd finops-optimizer
-
-python -m venv venv
-source venv/bin/activate
-
-pip install -r requirements.txt
-python app/main.py
 ```
 
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment:
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+
+**Windows**
+
+```powershell
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+Ensure your AWS CLI is configured with valid credentials before running the application.
+
+Configure your AWS credentials:
+
+```bash
+aws configure
+```
+
+Run the application:
+
+```bash
+python app/main.py
+```
 ------------------------------------------------------------------------
+# 🐳 Docker
 
-# Docker
+Build the Docker image:
 
-Build:
-
-``` bash
+```bash
 docker build -t finops-optimizer .
 ```
 
-Run:
+Run the container:
 
-``` bash
+```bash
 docker run --rm \
 -v ~/.aws:/root/.aws:ro \
 finops-optimizer
 ```
-
 ------------------------------------------------------------------------
+# ☁️ Infrastructure Provisioning with Terraform
 
-# Terraform
+Initialize Terraform:
 
-``` bash
-cd terraform
-
+```bash
 terraform init
+```
+
+Validate the configuration:
+
+```bash
 terraform validate
+```
+
+Preview the infrastructure:
+
+```bash
 terraform plan
+```
+
+Provision the infrastructure:
+
+```bash
 terraform apply
 ```
 
-Destroy infrastructure:
+Destroy the infrastructure:
 
-``` bash
+```bash
 terraform destroy
 ```
-
 ------------------------------------------------------------------------
+# 📊 Sample Output
 
-# Sample Output
-
-``` json
+```json
 [
   {
     "resource_type": "EC2",
@@ -199,48 +216,52 @@ terraform destroy
   }
 ]
 ```
+------------------------------------------------------------------------
+# 📸 Screenshots
+
+## Application Execution
+
+![Application Output](assets/screenshots/application-output.png)
+
+---
+
+## Docker Execution
+
+![Docker](assets/screenshots/docker-run.png)
+
+---
+
+## Terraform Plan
+
+![Terraform Plan](assets/screenshots/terraform-plan.png)
+
+---
+
+## Terraform Apply
+
+![Terraform Apply](assets/screenshots/terraform-apply.png)
+
+---
+
+## AWS EC2 Deployment
+
+![EC2 Instance](assets/screenshots/aws-ec2.png)
+
+---
+
+## Generated JSON Report
+
+![JSON Report](assets/screenshots/report-json.png)
 
 ------------------------------------------------------------------------
-
-# Screenshots
-
-> Replace the placeholders below after renaming your screenshots.
-
--   Project Execution
--   Docker Build & Run
--   Terraform Plan
--   Terraform Apply
--   AWS EC2 Console
--   JSON Report
--   Project Structure
--   VPC
--   Security Group
--   Terraform Destroy
-
-------------------------------------------------------------------------
-
-# Skills Demonstrated
-
--   AWS EC2
--   CloudWatch
--   FinOps Fundamentals
--   Infrastructure as Code
--   Docker
--   Python Automation
--   Git & GitHub
--   Cost Optimization
--   Cloud Resource Analysis
-
-------------------------------------------------------------------------
-
 # Future Enhancements
 
--   Support additional AWS services
--   Export reports in CSV and HTML
--   Web dashboard
--   Scheduled scans
--   Cost Explorer integration
--   Email notifications
+- Add support for additional AWS services such as S3, RDS, and Lambda.
+- Export reports in CSV, HTML, and PDF formats.
+- Develop a web-based dashboard for report visualization.
+- Integrate AWS Cost Explorer for enhanced cost analysis.
+- Schedule automated scans using EventBridge or cron jobs.
+- Add email notifications for optimization reports.
 
 ------------------------------------------------------------------------
 
