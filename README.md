@@ -14,42 +14,64 @@ Cloud environments often contain idle or underutilized resources that unnecessar
 
 This project demonstrates practical Cloud and DevOps skills through the implementation of Infrastructure as Code (Terraform), containerization (Docker), AWS automation, and Python-based cloud resource analysis.
 
+ **Developed as a portfolio project to demonstrate Cloud Computing, DevOps, and FinOps practices using AWS.**
+
 ------------------------------------------------------------------------
 
 # Problem Statement
 
-Cloud resources are often left running or over-provisioned, increasing
-operational costs.
+Cloud environments often contain idle, underutilized, or forgotten resources that continue to incur unnecessary costs. Identifying these resources manually becomes increasingly difficult as cloud infrastructure grows, making cost optimization a continuous challenge for organizations.
 
-This project automates the discovery of selected AWS resources and
-generates recommendations to help improve cloud cost efficiency.
+The objective of this project is to automate the discovery and analysis of AWS resources, identify potential cost-saving opportunities, and provide actionable recommendations using FinOps best practices.
+
+By combining AWS APIs, Python automation, Docker, and Terraform, this project demonstrates how cloud infrastructure can be analyzed and managed efficiently while promoting Infrastructure as Code (IaC) and modern DevOps practices.
 
 ------------------------------------------------------------------------
+# 🎯 Project Objectives
+
+- Automate the discovery of AWS cloud resources.
+- Analyze EC2 instances, EBS volumes, and snapshots for optimization opportunities.
+- Detect stopped and underutilized EC2 instances using CloudWatch metrics.
+- Estimate potential monthly cost savings for identified resources.
+- Generate structured JSON reports with optimization recommendations.
+- Demonstrate Infrastructure as Code (IaC) using Terraform.
+- Containerize the application using Docker for portability and reproducibility.
+- Showcase practical Cloud Computing, FinOps, and DevOps skills through an end-to-end project.
+
+---------------------------------------------------------------------------
+
 
 # Features
 
--   Analyze EC2 instances
--   Detect stopped EC2 instances
--   Detect low CPU utilization
--   Analyze EBS volumes
--   Analyze snapshots
--   Estimate monthly savings
--   Generate JSON optimization reports
--   Dockerized application
--   Terraform-based AWS infrastructure provisioning
+| Feature | Description |
+|----------|-------------|
+| **AWS Resource Discovery** | Automatically discovers EC2 instances, EBS volumes, and EBS snapshots within the configured AWS region. |
+| **EC2 Analysis** | Identifies stopped EC2 instances and detects underutilized instances using CloudWatch CPU utilization metrics. |
+| **EBS Volume Analysis** | Detects unattached EBS volumes that may be generating unnecessary storage costs. |
+| **Snapshot Analysis** | Identifies snapshots that can be reviewed for cleanup and storage optimization. |
+| **Cost Estimation** | Estimates potential monthly savings for identified optimization opportunities. |
+| **Recommendation Engine** | Applies FinOps rules to generate actionable optimization recommendations. |
+| **JSON Report Generation** | Generates structured JSON reports containing findings and recommendations. |
+| **Docker Support** | Containerized application for consistent deployment across environments. |
+| **Infrastructure as Code** | Uses Terraform to provision AWS infrastructure including VPC, networking, security groups, and EC2 instances. |
+| **AWS SDK Integration** | Uses the AWS SDK (`boto3`) for secure interaction with AWS services. |
 
 ------------------------------------------------------------------------
 
+---
+
 # Tech Stack
 
-  Category           Technology
-  ------------------ --------------
-  Language           Python 3
-  Cloud              AWS
-  SDK                boto3
-  Infrastructure     Terraform
-  Containerization   Docker
-  Version Control    Git & GitHub
+| Category | Technologies |
+|-----------|--------------|
+| **Programming Language** | Python 3 |
+| **Cloud Platform** | Amazon Web Services (AWS) |
+| **Cloud SDK** | boto3 |
+| **Infrastructure as Code** | Terraform |
+| **Containerization** | Docker |
+| **Version Control** | Git & GitHub |
+| **Monitoring** | Amazon CloudWatch |
+| **Operating System** | Ubuntu (WSL) |
 
 ------------------------------------------------------------------------
 
