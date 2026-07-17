@@ -245,13 +245,13 @@ terraform destroy
 
 ## AWS EC2 Deployment
 
-![EC2 Instance](assets/screenshots/aws-ec2.png)
+![EC2 Instance](assets/screenshots/aws-ec2-instance.png)
 
 ---
 
 ## Generated JSON Report
 
-![JSON Report](assets/screenshots/report-json.png)
+![JSON Report](assets/screenshots/json-report.png)
 
 ------------------------------------------------------------------------
 # Future Enhancements
