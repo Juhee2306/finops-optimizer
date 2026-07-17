@@ -271,8 +271,7 @@ terraform destroy
 
 Cloud Computing Undergraduate \| Aspiring Cloud & DevOps Engineer
 
-LinkedIn: 
+LinkedIn: https://www.linkedin.com/in/juhee-lavanya-841284348/
 
-GitHub: 
 
 
